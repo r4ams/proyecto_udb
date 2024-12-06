@@ -40,7 +40,7 @@ class MenuController extends Controller
             'type' => $request->type
         ]);
 
-        return redirect()->route('dashboard')->with('successful', 'Item de menu creado correctamente');
+        return redirect()->route('menus.index')->with('successful', 'Item de menu creado correctamente');
     }
 
     public function update(Request $request, $id)
@@ -52,6 +52,13 @@ class MenuController extends Controller
         $menu->type = $request->type;
         $menu->save();
 
-        return redirect()->route('dashboard')->with('successful', 'Item de menu actualizado correctamente');
+        return redirect()->route('menus.index')->with('successful', 'Item de menu actualizado correctamente');
+    }
+
+    public function destroy(Menu $menu)
+    {
+        $menu->delete();
+
+        return redirect()->route('menus.index')->with('success', 'Item de menu eliminado exitosamente.');
     }
 }

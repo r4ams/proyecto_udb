@@ -76,7 +76,7 @@ class OrderController extends Controller
         $table = \App\Models\Table::findOrFail($request['table_id']);
         $table->update(['status' => 'occupied']);
 
-        return redirect()->route('orders')->with('successful', 'Orden creada correctamente');
+        return redirect()->route('orders.index')->with('successful', 'Orden creada correctamente');
     }
 
     public function edit(Order $order)

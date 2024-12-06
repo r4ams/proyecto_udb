@@ -59,7 +59,7 @@ class ReservationController extends Controller
         $table->update(['status' => 'reserved']);
 
         // Redirigir con éxito
-        return redirect()->route('reservations')->with('success', 'Reserva creada correctamente');
+        return redirect()->route('reservations.index')->with('success', 'Reserva creada correctamente');
     }
 
     public function edit(Reservation $reservation)

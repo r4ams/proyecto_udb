@@ -30,7 +30,7 @@ class TableController extends Controller
             'capacity' => $request->capacity
         ]);
 
-        return redirect()->route('dashboard')->with('successful', 'Mesa creada correctamente');
+        return redirect()->route('tables.index')->with('successful', 'Mesa creada correctamente');
     }
 
     public function edit(Table $table)
