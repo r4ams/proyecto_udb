@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin$123')
         ]);
 
+        $this->call([
+            UserSeeder::class,
+            ProjectSeeder::class,
+            TaskSeeder::class,
+        ]);
+
     }
 }

@@ -8,6 +8,9 @@ use App\Http\Controllers\ReservationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
+
+
 
 /*
 |--------------------------------------------------------------------------
