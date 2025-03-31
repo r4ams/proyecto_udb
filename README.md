@@ -1,22 +1,73 @@
-# Proyecto de Gestión de Mesas y Pedidos
 
-Este es un sistema de gestión de mesas y pedidos desarrollado como parte de un proyecto educativo en la Universidad Don Bosco (UDB). El sistema permite a los usuarios gestionar mesas, realizar pedidos y administrar su estado de manera eficiente.
+---
 
-## Características principales
+### 📁 `README.md` del backend: `proyecto_udb`
 
-- **Gestión de mesas**:
-  - Creación, edición, eliminación y actualización del estado de las mesas (`disponible`, `reservada`, `ocupada`).
-- **Gestión de pedidos**:
-  - Permite crear pedidos, asociar alimentos y bebidas, y actualizar su estado.
-- **Validaciones robustas**:
-  - Manejo de errores en formularios y validación de datos.
-- **Interfaz amigable**:
-  - Uso de Vue 3 con componentes personalizados para una experiencia fluida.
 
-## Tecnologías utilizadas
 
-- **Backend**: Laravel 10.
-- **Frontend**: Vue 3 con Inertia.js.
-- **Base de datos**: MySQL.
-- **Diseño**: TailwindCSS.
-- **Autenticación**: Breeze.
+### 🧠 Gestor de Proyectos — Backend (Laravel + Passport)
+
+Este es el **backend API REST** del sistema de gestión de proyectos desarrollado para la materia **Desarrollo de Proyectos de Software - UDB**. Funciona como servidor para el frontend creado en Next.js.
+
+> Frontend disponible en: [`gestor-proyectos-frontend`](https://github.com/r4ams/gestor-proyectos-frontend)
+
+---
+
+### 🚀 Tecnologías
+
+- [Laravel 10+](https://laravel.com)
+- [Laravel Passport (OAuth2)](https://laravel.com/docs/10.x/passport)
+- [MySQL](https://www.mysql.com/)
+
+## 🔐 Autenticación con Laravel Passport
+
+Este proyecto usa Passport como sistema de autenticación con **tokens de acceso personales**.
+
+### Flujo básico:
+-   El usuario se autentica con `/api/login`
+-   Se retorna el `access_token`
+-   Las solicitudes protegidas requieren el header:  
+    `Authorization: Bearer {access_token}`
+
+## 🔌 Rutas principales
+
+### 🧑‍💻 AuthController
+    
+-   `POST /api/login` — Iniciar sesión (retorna token)
+-   `POST /api/logout` — Cerrar sesión
+    
+
+### 📁 ProjectsController (auth:api)
+
+-   `GET /api/projects` — Listar proyectos del usuario
+    
+-   `POST /api/projects` — Crear proyecto
+    
+-   `GET /api/projects/{id}` — Ver un proyecto
+    
+-   `PUT /api/projects/{id}` — Actualizar proyecto
+    
+-   `DELETE /api/projects/{id}` — Eliminar proyecto
+    
+
+### ✅ TasksController (auth:api)
+
+-   `GET /api/projects/{id}/tasks` — Listar tareas del proyecto
+    
+-   `POST /api/projects/{id}/tasks` — Crear tarea
+    
+-   `PUT /api/tasks/{id}` — Editar tarea
+    
+-   `DELETE /api/tasks/{id}` — Eliminar tarea
+    
+
+### 👥 UsersController (auth:api)
+
+-   `GET /api/users` — Listar todos los usuarios
+    
+-   `POST /api/users` — Crear usuario
+    
+-   `DELETE /api/users/{id}` — Eliminar usuario
+    
+
+> 🔒 Todas las rutas, excepto  `login`, requieren autenticación por token.
