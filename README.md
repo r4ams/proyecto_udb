@@ -5,11 +5,11 @@
 
 
 
-### 🧠 Gestor de Proyectos — Backend (Laravel + Passport)
+### 🧠 Gestor de Eventos — Backend (Laravel + Passport)
 
-Este es el **backend API REST** del sistema de gestión de proyectos desarrollado para la materia **Desarrollo de Proyectos de Software - UDB**. Funciona como servidor para el frontend creado en Next.js.
+Este es el **backend API REST** del sistema de gestión de eventos desarrollado para la materia **Desarrollo de Proyectos de Software - UDB**. Funciona como servidor para el frontend creado en ReactNative.
 
-> Frontend disponible en: [`gestor-proyectos-frontend`](https://github.com/r4ams/gestor-proyectos-frontend)
+> Frontend disponible en: [`udb_events_frontend`](https://github.com/r4ams/udb_events)
 
 ---
 
@@ -37,29 +37,33 @@ Este proyecto usa Passport como sistema de autenticación con **tokens de acceso
 -   `POST /api/logout` — Cerrar sesión
     
 
-### 📁 ProjectsController (auth:api)
+### 📁 EventController (auth:api)
 
--   `GET /api/projects` — Listar proyectos del usuario
+-   `GET /api/events` — Listar eventos del usuario
     
--   `POST /api/projects` — Crear proyecto
+-   `POST /api/events` — Crear evento
     
--   `GET /api/projects/{id}` — Ver un proyecto
+-   `GET /api/events/{id}` — Ver un evento
     
--   `PUT /api/projects/{id}` — Actualizar proyecto
+-   `PUT /api/events/{id}` — Actualizar evento
     
--   `DELETE /api/projects/{id}` — Eliminar proyecto
+-   `DELETE /api/events/{id}` — Eliminar evento
     
 
-### ✅ TasksController (auth:api)
+### ✅ RSVPController (auth:api)
 
--   `GET /api/projects/{id}/tasks` — Listar tareas del proyecto
+-   `POST /api/events/{event}/rsvp` — Marcar asistencia a un evento
     
--   `POST /api/projects/{id}/tasks` — Crear tarea
+-   `POST /api//events/{id}/rsvp/status` — Optener estado de RSVP por cliente
     
--   `PUT /api/tasks/{id}` — Editar tarea
+
+
+### ✅ CommentController (auth:api)
+
+-   `POST /api/events/{event}/comments` — Crear comentario en evento
     
--   `DELETE /api/tasks/{id}` — Eliminar tarea
-    
+-   `GET /api/events/{event}/comments` — Listar comentarios de un evento
+
 
 ### 👥 UsersController (auth:api)
 
