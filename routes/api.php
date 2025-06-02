@@ -7,6 +7,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\API\EventController;
+use App\Http\Controllers\API\RSVPController;
+use App\Http\Controllers\API\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +43,16 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/users', [UserController::class, 'index']);
     Route::post('/users', [UserController::class, 'store']);
     Route::delete('/users/{user}', [UserController::class, 'destroy']);
+
+    Route::apiResource('events', EventController::class);
+
+    Route::post('events/{event}/rsvp', [RSVPController::class, 'store']);
+    Route::get('events/{event}/rsvps', [RSVPController::class, 'index']);
+
+    Route::get('events/{event}/comments', [CommentController::class, 'index']);
+    Route::post('events/{event}/comments', [CommentController::class, 'store']);
+
+    Route::get('/events/{id}/rsvp/status', [RSVPController::class, 'status']);
 
     Route::post('/logout', [AuthController::class, 'logout']); // opcional
 });
